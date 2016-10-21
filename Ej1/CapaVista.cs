@@ -17,7 +17,7 @@ namespace Ej1
             }
             catch (Exception exception)
             {
-                return ("Tercer Excepcion - " + exception);
+                return ("Excepcion capa Vista: " + exception);
             }
         }
     }

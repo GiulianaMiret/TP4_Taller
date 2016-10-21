@@ -17,7 +17,9 @@ namespace Ej1
             }
             catch (Exception exception)
             {
-                exception = new CapaAplicacionException("Segunda Excepcion - " + exception);
+                exception = new CapaAplicacionException("Excepcion de la capa Aplicacion: ", exception);
+                //una forma es asi: 
+                //exception = new CapaAplicacionException("Segunda Excepcion - ").InnerException;
                 throw exception;
             }
         }

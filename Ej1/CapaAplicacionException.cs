@@ -8,7 +8,7 @@ namespace Ej1
 {
     class CapaAplicacionException : ApplicationException
     {
-        public CapaAplicacionException(string pMensaje) : base(pMensaje)
+        public CapaAplicacionException(string pMensaje, Exception pException) : base(pMensaje)
         { }
     }
 }

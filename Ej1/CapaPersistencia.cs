@@ -10,7 +10,7 @@ namespace Ej1
     {
         public string Ejecutar()
         {
-            ErrorPuntualException unaExcepcion = new ErrorPuntualException("Primer excepcion -" + Convert.ToString(DateTime.Today));
+            ErrorPuntualException unaExcepcion = new ErrorPuntualException("Excepcion de la capa Persistencia: " + Convert.ToString(DateTime.Today));
             throw unaExcepcion;
         }
     }
