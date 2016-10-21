@@ -10,9 +10,8 @@ namespace Ej1
     {
         public string Ejecutar()
         {
-            ErrorPuntualException unaExcepcion = new ErrorPuntualException();
+            ErrorPuntualException unaExcepcion = new ErrorPuntualException("Primer excepcion -" + Convert.ToString(DateTime.Today));
             throw unaExcepcion;
-            
         }
     }
 }

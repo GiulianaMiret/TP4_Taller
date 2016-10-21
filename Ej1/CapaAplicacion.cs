@@ -11,8 +11,15 @@ namespace Ej1
         public string Ejecutar()
         {
             CapaDominio aux = new CapaDominio();
-
-            return "hola";
+            try
+            {
+                return aux.Ejecutar();
+            }
+            catch (Exception exception)
+            {
+                exception = new CapaAplicacionException("Segunda Excepcion - " + exception);
+                throw exception;
+            }
         }
     }
 }

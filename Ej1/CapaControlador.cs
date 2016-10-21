@@ -12,7 +12,7 @@ namespace Ej1
         {
             CapaAplicacion aux = new CapaAplicacion();
 
-            return "hola";
+            return aux.Ejecutar();
         }
     }
 }
