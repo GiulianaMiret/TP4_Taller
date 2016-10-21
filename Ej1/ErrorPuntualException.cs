@@ -8,9 +8,7 @@ namespace Ej1
 {
     class ErrorPuntualException : ApplicationException
     {
-        public Exception ErrorPuntualException ()
-        {
-            
-        }
+        public ErrorPuntualException(string pMensaje) : base(pMensaje)
+        { }
     }
 }

@@ -10,6 +10,9 @@ namespace Ej1
     {
         static void Main(string[] args)
         {
+            CapaVista aux = new CapaVista();
+            Console.WriteLine(aux.Ejecutar());
+            Console.ReadKey();
         }
     }
 }

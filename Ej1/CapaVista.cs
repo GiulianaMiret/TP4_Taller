@@ -11,8 +11,14 @@ namespace Ej1
         public string Ejecutar()
         {
             CapaControlador aux = new CapaControlador();
-            
-            return "hola";
+            try
+            {
+                return aux.Ejecutar();
+            }
+            catch (Exception exception)
+            {
+                return ("Excepcion capa Vista: " + exception);
+            }
         }
     }
 }

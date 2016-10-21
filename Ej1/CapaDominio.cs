@@ -11,8 +11,7 @@ namespace Ej1
         public string Ejecutar()
         {
             CapaPersistencia aux = new CapaPersistencia();
-
-            return "hola";
+            return aux.Ejecutar();
         }
     }
 }

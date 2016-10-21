@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ej1
 {
-    public class ApplicationException
+    public class ApplicationException : Exception
     {
+        public ApplicationException (string pMensaje) : base (pMensaje)
+        { }
     }
 }
