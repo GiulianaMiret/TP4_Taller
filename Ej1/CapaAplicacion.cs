@@ -8,6 +8,8 @@ namespace Ej1
 {
     class CapaAplicacion
     {
+        public CapaAplicacion () { }
+
         public string Ejecutar()
         {
             CapaDominio aux = new CapaDominio();
@@ -17,8 +19,8 @@ namespace Ej1
             }
             catch (Exception exception)
             {
-                exception = new CapaAplicacionException("Excepcion de la capa Aplicacion: ", exception);
-                //una forma es asi: 
+                exception = new CapaAplicacionException("Excepcion de la capa Aplicacion: "+Convert.ToString(DateTime.Now), exception);
+                //otra forma es asi: (si la excepcion no tiene el parametro InnerException)
                 //exception = new CapaAplicacionException("Segunda Excepcion - ").InnerException;
                 throw exception;
             }
