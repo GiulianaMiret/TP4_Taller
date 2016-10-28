@@ -6,39 +6,45 @@ using System.Threading.Tasks;
 
 namespace Ej5
 {
-    public class RepositorioEnMemoria
+    public class RepositorioEnMemoria: IRepositorioUsuarios
     {
-        IDictionary<string, Usuario>
+
+        public SortedDictionary<string, Usuario> diccionario = new SortedDictionary<string, Usuario>();
 
         public void Agregar(Usuario pUsuario)
         {
-            pUsuario = new Usuario();
-            
+            diccionario.Add(pUsuario.Codigo, pUsuario);
         }
 
         public void Actualizar(Usuario pUsuario)
         {
-            pUsuario = 
+            diccionario[pUsuario.Codigo] = pUsuario;
         }
 
        public void Eliminar(string pCodigo)
         {
-
+            diccionario.Remove(pCodigo);
         }
 
        public IList<Usuario> ObtenerTodos()
         {
+            IList<Usuario> lista = new List<Usuario>();
+            foreach (KeyValuePair<string, Usuario> result in diccionario)
+            {
+                lista.Add(result.Value);
+            }
 
+            return lista;
         }
 
        public Usuario ObtenerPorCodigo(string pCodigo)
         {
-
+            return diccionario[pCodigo];
         }
 
        public IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador)
         {
-
+            PROBLEMILLAS
         }
     }
 }

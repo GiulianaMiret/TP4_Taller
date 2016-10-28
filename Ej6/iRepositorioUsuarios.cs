@@ -19,7 +19,9 @@ namespace Ej5
 
         Usuario ObtenerPorCodigo(string pCodigo);
 
-         IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador);
+        IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador);
+
+        
         
     }
 }

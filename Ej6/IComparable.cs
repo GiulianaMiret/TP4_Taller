@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ej6
 {
-    public interface IComparer<T> where T : class
+    public interface IComparable<T> where T : class
     {
+
     }
 }
