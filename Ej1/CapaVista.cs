@@ -8,6 +8,8 @@ namespace Ej1
 {
     class CapaVista
     {
+        public CapaVista() { }
+
         public string Ejecutar()
         {
             CapaControlador aux = new CapaControlador();

@@ -8,6 +8,8 @@ namespace Ej1
 {
     class CapaDominio
     {
+        public CapaDominio() { }
+
         public string Ejecutar()
         {
             CapaPersistencia aux = new CapaPersistencia();
