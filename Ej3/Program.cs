@@ -24,6 +24,7 @@ namespace Ej3
                     Console.WriteLine(linea);
                     cont++;
                 }
+                archivo.Close();
             }
             catch (System.ArgumentException)
             {
@@ -37,23 +38,6 @@ namespace Ej3
             {
                 Console.WriteLine("Lo siento, el archivo no fue econtrado.");
             }
-            finally
-            {
-                archivo.Close();
-            }
-            
-            //catch (System.IO.IOException pException)
-            //{
-            //    Console.WriteLine(pException.Message);
-            //}
-
-            //finally
-            //{
-
-            //    Console.WriteLine("El archivo tiene {0} lineas.", cont);
-            //}
-            // UnauthorizedAccessException
-
             Console.ReadLine();
         }
     }

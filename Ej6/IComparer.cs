@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ej5
+namespace Ej6
 {
-    class Program
+    class IComparer
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
