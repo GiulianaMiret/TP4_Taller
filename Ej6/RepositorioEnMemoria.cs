@@ -8,11 +8,16 @@ namespace Ej5
 {
     public class RepositorioEnMemoria: IRepositorioUsuarios
     {
-
+        //FALTAN COMPROBACIONES Y ESAS COSAS.. TIERAR EXCEPCIONES PARA TODOS LADOS
         public SortedDictionary<string, Usuario> diccionario = new SortedDictionary<string, Usuario>();
 
         public void Agregar(Usuario pUsuario)
         {
+            if (pUsuario == null)
+            {
+                throw new ArgumentNullException(nameof(pUsuario));
+            }
+
             diccionario.Add(pUsuario.Codigo, pUsuario);
         }
 
@@ -44,7 +49,11 @@ namespace Ej5
 
        public IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador)
         {
-            PROBLEMILLAS
+            List<Usuario> usuarios = new List<Usuario>(this.diccionario.Values);
+
+            usuarios.Sort(pComparador);
+
+            return usuarios;
         }
     }
 }
