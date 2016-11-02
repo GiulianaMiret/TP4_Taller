@@ -24,6 +24,7 @@ namespace Ej5
         public void Actualizar(Usuario pUsuario)
         {
             diccionario[pUsuario.Codigo] = pUsuario;
+            
         }
        
        public void Eliminar(string pCodigo)
@@ -34,6 +35,10 @@ namespace Ej5
        public IList<Usuario> ObtenerTodos()
         {
             IList<Usuario> lista = new List<Usuario>();
+            if (lista == null)
+            {
+                throw new ArgumentNullException(nameof(lista));
+            }
             foreach (KeyValuePair<string, Usuario> result in diccionario)
             {
                 lista.Add(result.Value);
@@ -44,6 +49,7 @@ namespace Ej5
 
        public Usuario ObtenerPorCodigo(string pCodigo)
         {
+            
             return diccionario[pCodigo];
         }
 
