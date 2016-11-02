@@ -8,7 +8,6 @@ namespace Ej6
 {
     public interface IRepositorioUsuarios
     {
-
         void Agregar(Usuario pUsuario);
 
         void Actualizar(Usuario pUsuario);

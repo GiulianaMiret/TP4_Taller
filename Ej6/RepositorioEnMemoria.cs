@@ -20,7 +20,7 @@ namespace Ej6
         {
             pUsuario = 
         }
-
+       
        public void Eliminar(string pCodigo)
         {
 
