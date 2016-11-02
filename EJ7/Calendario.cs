@@ -16,17 +16,6 @@ namespace EJ7
 
 		public void AgregarEvento(Evento pEvento)
 		{
-			IEnumerator<Evento> enumerador = iEventos.GetEnumerator();
-			bool valido = true;
-			while (valido && enumerador.MoveNext())
-			{
-				if(enumerador.Current.FechaHoraComienzo <= pEvento.FechaHoraComienzo && enumerador.Current.FechaHoraComienzo.Add(enumerador.Current.Duracion) > enumerador.Current.FechaHoraComienzo)
-					valido = false;
-				if (enumerador.Current.FechaHoraComienzo >= pEvento.FechaHoraComienzo && pEvento.FechaHoraComienzo.Add(pEvento.Duracion) > enumerador.Current.FechaHoraComienzo)
-					valido = false;
-			}
-			if(valido == false)
-				
 			iEventos.Add(pEvento);
 		}
 
@@ -35,7 +24,7 @@ namespace EJ7
 			List<Evento> retorno = new List<Evento>();
 			iEventos.ForEach((Evento evento) =>
 			{
-				if (evento.FechaHoraComienzo.Date == pDia.Date)
+				if (evento.Ocurre(pDia))
 				{
 					retorno.Add(evento);
 				}
@@ -48,7 +37,7 @@ namespace EJ7
 			List<Evento> retorno = new List<Evento>();
 			iEventos.ForEach((Evento evento) =>
 			{
-				if (evento.FechaHoraComienzo.Date > pDiaDesde.Date && evento.FechaHoraComienzo < pDiaHasta.Date)
+				if (evento.Ocurre(pDiaDesde, pDiaHasta))
 				{
 					retorno.Add(evento);
 				}
