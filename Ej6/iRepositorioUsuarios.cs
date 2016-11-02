@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ej6
+namespace Ej5
 {
     public interface IRepositorioUsuarios
     {
@@ -18,7 +18,9 @@ namespace Ej6
 
         Usuario ObtenerPorCodigo(string pCodigo);
 
-         IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador);
+        IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador);
+
+        
         
     }
 }

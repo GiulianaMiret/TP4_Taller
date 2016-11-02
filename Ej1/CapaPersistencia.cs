@@ -8,10 +8,15 @@ namespace Ej1
 {
     class CapaPersistencia
     {
+        public CapaPersistencia()
+        {
+            ErrorPuntualException unaExcepcion = new ErrorPuntualException("Error: "+Convert.ToString(DateTime.Now));
+            throw unaExcepcion;
+        }
+
         public string Ejecutar()
         {
-            ErrorPuntualException unaExcepcion = new ErrorPuntualException("Excepcion de la capa Persistencia: " + Convert.ToString(DateTime.Today));
-            throw unaExcepcion;
+            return "";
         }
     }
 }
