@@ -34,5 +34,107 @@ namespace EJ7
 		{
 			get { return this.iFechaHoraComienzo; }
 		}
+
+		public bool Ocurre(DateTime pFecha)
+		{
+			switch (this.FrecuenciaRepeticion)
+			{
+				case Frecuencia.UNICA_VEZ: 
+					{
+						return this.FechaHoraComienzo.Date == pFecha.Date || this.FechaHoraComienzo.Add(this.Duracion).Date == pFecha.Date;
+					}
+				case Frecuencia.UNA_VEZ_MES:
+					{
+						DateTime fechaComprobacion = this.FechaHoraComienzo;
+						bool valido = false;
+						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						{
+							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+								valido = true;
+							fechaComprobacion.AddMonths(1);
+						}
+						return valido;
+					}
+				case Frecuencia.UNA_VEZ_SEMANA:
+					{
+						DateTime fechaComprobacion = this.FechaHoraComienzo;
+						bool valido = false;
+						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						{
+							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+								valido = true;
+							fechaComprobacion.AddDays(7);
+						}
+						return valido;
+					}
+				case Frecuencia.UNA_VEZ_AÑO:
+					{
+						DateTime fechaComprobacion = this.FechaHoraComienzo;
+						bool valido = false;
+						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						{
+							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+								valido = true;
+							fechaComprobacion.AddYears(1);
+						}
+						return valido;
+					}
+				default:
+					{
+						return this.FechaHoraComienzo.Date == pFecha.Date || this.FechaHoraComienzo.Add(this.Duracion).Date == pFecha.Date;
+					}
+			}
+		}
+
+		public bool Ocurre(DateTime pFecha, DateTime pFechaHasta)
+		{
+			switch (this.FrecuenciaRepeticion)
+			{
+				case Frecuencia.UNICA_VEZ:
+					{
+						return this.FechaHoraComienzo.Date == pFecha.Date || this.FechaHoraComienzo.Add(this.Duracion).Date == pFecha.Date;
+					}
+				case Frecuencia.UNA_VEZ_MES:
+					{
+						DateTime fechaComprobacion = this.FechaHoraComienzo;
+						bool valido = false;
+						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						{
+							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+								valido = true;
+							fechaComprobacion.AddMonths(1);
+						}
+						return valido;
+					}
+				case Frecuencia.UNA_VEZ_SEMANA:
+					{
+						DateTime fechaComprobacion = this.FechaHoraComienzo;
+						bool valido = false;
+						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						{
+							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+								valido = true;
+							fechaComprobacion.AddDays(7);
+						}
+						return valido;
+					}
+				case Frecuencia.UNA_VEZ_AÑO:
+					{
+						DateTime fechaComprobacion = this.FechaHoraComienzo;
+						bool valido = false;
+						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						{
+							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+								valido = true;
+							fechaComprobacion.AddYears(1);
+						}
+						return valido;
+					}
+				default:
+					{
+						return this.FechaHoraComienzo.Date == pFecha.Date || this.FechaHoraComienzo.Add(this.Duracion).Date == pFecha.Date;
+					}
+			}
+		}
 	}
 }
