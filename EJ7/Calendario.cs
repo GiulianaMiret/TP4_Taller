@@ -12,17 +12,28 @@ namespace EJ7
 		{
 			this.iTitulo = pTitulo;
 			this.iFechaHoraCreacion = pFechaHoraCreacion;
+			this.iEventos = new List<Evento>();
+		}
+
+		public string Titulo
+		{
+			get { return this.iTitulo; }
+		}
+
+		public DateTime FechaHoraCreacion
+		{
+			get { return this.iFechaHoraCreacion; }
 		}
 
 		public void AgregarEvento(Evento pEvento)
 		{
-			iEventos.Add(pEvento);
+			this.iEventos.Add(pEvento);
 		}
 
 		public List<Evento> ObtenerEventos(DateTime pDia)
 		{
-			List<Evento> retorno = new List<Evento>();
-			iEventos.ForEach((Evento evento) =>
+			var retorno = new List<Evento>();
+			this.iEventos.ForEach((Evento evento) =>
 			{
 				if (evento.Ocurre(pDia))
 				{
@@ -34,8 +45,8 @@ namespace EJ7
 
 		public List<Evento> ObtenerEventos(DateTime pDiaDesde, DateTime pDiaHasta)
 		{
-			List<Evento> retorno = new List<Evento>();
-			iEventos.ForEach((Evento evento) =>
+			var retorno = new List<Evento>();
+			this.iEventos.ForEach((Evento evento) =>
 			{
 				if (evento.Ocurre(pDiaDesde, pDiaHasta))
 				{
@@ -44,6 +55,5 @@ namespace EJ7
 			});
 			return retorno;
 		}
-
-
+	}
 }

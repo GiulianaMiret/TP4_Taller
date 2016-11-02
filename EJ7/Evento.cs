@@ -92,15 +92,15 @@ namespace EJ7
 			{
 				case Frecuencia.UNICA_VEZ:
 					{
-						return this.FechaHoraComienzo.Date == pFecha.Date || this.FechaHoraComienzo.Add(this.Duracion).Date == pFecha.Date;
+						return this.FechaHoraComienzo.Date >= pFecha.Date && this.FechaHoraComienzo.Date <= pFechaHasta.Date;
 					}
 				case Frecuencia.UNA_VEZ_MES:
 					{
 						DateTime fechaComprobacion = this.FechaHoraComienzo;
 						bool valido = false;
-						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						while (valido == false && fechaComprobacion.Date <= pFechaHasta.Date)
 						{
-							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+							if (pFecha.Date <= fechaComprobacion.Date)
 								valido = true;
 							fechaComprobacion.AddMonths(1);
 						}
@@ -110,9 +110,9 @@ namespace EJ7
 					{
 						DateTime fechaComprobacion = this.FechaHoraComienzo;
 						bool valido = false;
-						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						while (valido == false && fechaComprobacion.Date <= pFechaHasta.Date)
 						{
-							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+							if (pFecha.Date <= fechaComprobacion.Date)
 								valido = true;
 							fechaComprobacion.AddDays(7);
 						}
@@ -122,9 +122,9 @@ namespace EJ7
 					{
 						DateTime fechaComprobacion = this.FechaHoraComienzo;
 						bool valido = false;
-						while (valido == false && pFecha.Date >= fechaComprobacion.Date)
+						while (valido == false && fechaComprobacion.Date <= pFechaHasta.Date)
 						{
-							if (pFecha.Date == fechaComprobacion.Date || fechaComprobacion.Add(this.Duracion).Date == pFecha.Date)
+							if (pFecha.Date <= fechaComprobacion.Date)
 								valido = true;
 							fechaComprobacion.AddYears(1);
 						}
@@ -132,7 +132,7 @@ namespace EJ7
 					}
 				default:
 					{
-						return this.FechaHoraComienzo.Date == pFecha.Date || this.FechaHoraComienzo.Add(this.Duracion).Date == pFecha.Date;
+						return this.FechaHoraComienzo.Date >= pFecha.Date && this.FechaHoraComienzo.Date <= pFechaHasta.Date;
 					}
 			}
 		}
