@@ -23,12 +23,32 @@ namespace Ej5
 
         public void Actualizar(Usuario pUsuario)
         {
+            if (pUsuario == null)
+            {
+                throw new ArgumentNullException(nameof(pUsuario));
+            }
+
+            if (!diccionario.ContainsKey(pUsuario.Codigo))
+            {
+                throw new KeyNotFoundException(nameof(pUsuario));
+            }
+
             diccionario[pUsuario.Codigo] = pUsuario;
             
         }
        
        public void Eliminar(string pCodigo)
         {
+            if (pCodigo == null)
+            {
+                throw new ArgumentNullException(nameof(pCodigo));
+            }
+
+            if (!diccionario.ContainsKey(pCodigo))
+            {
+                throw new KeyNotFoundException(nameof(pCodigo));
+            }
+
             diccionario.Remove(pCodigo);
         }
 
@@ -61,5 +81,7 @@ namespace Ej5
 
             return usuarios;
         }
+
+        
     }
 }
