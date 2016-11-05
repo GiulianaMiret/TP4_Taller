@@ -10,6 +10,7 @@ namespace Ej1
     {
         public CapaDominio() { }
 
+        //Llama al metodo Ejecutar de la Clase CapaPersistencia
         public string Ejecutar()
         {
             CapaPersistencia aux = new CapaPersistencia();

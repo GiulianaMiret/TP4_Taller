@@ -37,16 +37,6 @@ namespace Ej5
         public int CompareTo(Usuario other)
         {
             return this.Codigo.CompareTo(other.Codigo);
-
-            ////if (this.Codigo == other.Codigo)
-            //    { return 0; }
-            //else
-            //{
-            //    if (this.Codigo <= other.Codigo)
-            //    {
-            //        return -1;
-            //    }
-            //    else { }
         }
     }
 }

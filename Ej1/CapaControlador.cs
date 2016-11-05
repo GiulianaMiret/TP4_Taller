@@ -14,6 +14,7 @@ namespace Ej1
         {
             CapaAplicacion aux = new CapaAplicacion();
 
+            //Llama al metodo Ejecutar de la Capa Aplicacion
             return aux.Ejecutar();
         }
     }

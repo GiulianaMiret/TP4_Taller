@@ -8,6 +8,9 @@ namespace Ej3
 {
     class Program
     {
+        //Lee un archivo y lo muestra en pantalla
+        //pidiendo la ruta del mismo
+
         static void Main(string[] args)
         {
             int cont = 0;
@@ -26,19 +29,23 @@ namespace Ej3
                 }
                 archivo.Close();
             }
-            catch (System.ArgumentException)
+            catch (System.ArgumentException) //Si la ruta es nula, no se le pasa ruta
             {
                 Console.WriteLine("Usted no ha ingresado la ruta");
             }
-            catch (System.IO.DirectoryNotFoundException)
+            catch (System.IO.DirectoryNotFoundException) //El directorio no esta, o no es econtrado
             {
                 Console.WriteLine("El directorio no existe");
             }
-            catch (System.IO.FileNotFoundException)
+            catch (System.IO.FileNotFoundException) //El archivo no es encontrado
             {
                 Console.WriteLine("Lo siento, el archivo no fue econtrado.");
             }
             Console.ReadLine();
+
+            //Falta la Excepcion para cuando la ruta esta mal escrita, es decir
+            //en vez de escribir: c:\...
+            //se escriba: asdf
         }
     }
 }

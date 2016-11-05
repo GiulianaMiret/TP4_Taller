@@ -8,6 +8,8 @@ namespace Ej5
 {
     public class ComparadorNombre : IComparer<Usuario>
     {
+        //Compara los usuarios segun su nombre
+
         public int Compare (Usuario usuario1, Usuario usuario2)
         {
             return usuario1.NombreCompleto.CompareTo(usuario2.NombreCompleto);

@@ -8,6 +8,9 @@ namespace Ej5
 {
     public class ComparadorNombreyCodigo : IComparer<Usuario>
     {
+        //Compara los usuarios segun el nombre y el codigo
+        //Es decir, los ordena pimero por nombre y despues por codigo
+
         public int Compare(Usuario usuario1, Usuario usuario2)
         {
             string aux = usuario1.NombreCompleto + usuario1.Codigo;

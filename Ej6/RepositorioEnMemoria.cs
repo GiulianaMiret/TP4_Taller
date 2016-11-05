@@ -8,9 +8,9 @@ namespace Ej5
 {
     public class RepositorioEnMemoria: IRepositorioUsuarios
     {
-        //FALTAN COMPROBACIONES Y ESAS COSAS.. TIERAR EXCEPCIONES PARA TODOS LADOS
         public SortedDictionary<string, Usuario> diccionario = new SortedDictionary<string, Usuario>();
 
+        //Agrega un Usuario al diccionario
         public void Agregar(Usuario pUsuario)
         {
             if (pUsuario == null)
@@ -21,6 +21,7 @@ namespace Ej5
             diccionario.Add(pUsuario.Codigo, pUsuario);
         }
 
+        //Actualiza un Usuario del diccionario, buscandolo por el Codigo (clave)
         public void Actualizar(Usuario pUsuario)
         {
             if (pUsuario == null)
@@ -37,6 +38,7 @@ namespace Ej5
             
         }
        
+        //Elimina a un Usuario especifico buscandolo por el codigo
        public void Eliminar(string pCodigo)
         {
             if (pCodigo == null)
@@ -52,6 +54,8 @@ namespace Ej5
             diccionario.Remove(pCodigo);
         }
 
+        //Obtiene todos los usuarios que estan en el diccionario
+        //pasandolos a una lista, sin ningun orden especifico
        public IList<Usuario> ObtenerTodos()
         {
             IList<Usuario> lista = new List<Usuario>();
@@ -67,12 +71,22 @@ namespace Ej5
             return lista;
         }
 
+        //Obtiene a un solo Usuario
        public Usuario ObtenerPorCodigo(string pCodigo)
         {
             
             return diccionario[pCodigo];
         }
 
+
+        //Obtiene los usuarios ordenados por un determinado criterio.
+        //Si se pasa null como criterio, utiliza el ordenamiento por defecto
+        //que es ordenarlo alfabeticamente por Codigo
+
+        //los otros orenamientos posibles son:
+                //Segun el Correo Electronico
+                //Segun el Nombre
+                //Segun el Nombre y el Codigo
        public IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador)
         {
             List<Usuario> usuarios = new List<Usuario>(this.diccionario.Values);
