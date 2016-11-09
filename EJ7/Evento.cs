@@ -11,7 +11,7 @@ namespace EJ7
 		public Evento(string pTitulo, DateTime pFechaHoraComienzo, TimeSpan pDuracion, Frecuencia pFrecuencia)
 		{
 			if (pTitulo == string.Empty) throw new ArgumentException("El titulo del evento debe ser distinto a la cadena vacia.");
-			if (pFechaHoraComienzo < DateTime.Now) throw new ArgumentException("La fecha/hora de comienzo deben ser posteriores al dia de hoy"); 
+			if (pFechaHoraComienzo.ToBinary() <= DateTime.Now.ToBinary()) throw new ArgumentException("La fecha/hora de comienzo deben ser posteriores al dia de hoy"); 
 			if (pDuracion.Minutes < 5) throw new ArgumentException("La duracion debe ser de por lo menos 5 minutos.");
 
 			this.iTitulo = pTitulo;

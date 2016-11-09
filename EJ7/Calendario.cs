@@ -8,10 +8,10 @@ namespace EJ7
 		private DateTime iFechaHoraCreacion;
 		private List<Evento> iEventos;
 
-		public Calendario(string pTitulo, DateTime pFechaHoraCreacion)
-		{
-			if (pTitulo == string.Empty) throw new ArgumentException("El calendario tiene que tener un titulo. ");
-			if (pFechaHoraCreacion < DateTime.Now) throw new ArgumentException("El calendario debe tener una fecha de creacion posterior al dia de hoy. ");
+        public Calendario(string pTitulo, DateTime pFechaHoraCreacion)
+        {
+            if (pTitulo == string.Empty) throw new ArgumentException("El calendario tiene que tener un titulo. ");
+            if (pFechaHoraCreacion.ToBinary() <= DateTime.Now.ToBinary()) throw new ArgumentException("El calendario debe tener una fecha de creacion posterior al dia de hoy. ");
 
 			this.iTitulo = pTitulo;
 			this.iFechaHoraCreacion = pFechaHoraCreacion;
