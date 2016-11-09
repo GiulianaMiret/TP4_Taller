@@ -10,6 +10,9 @@ namespace Ej1
     {
         public CapaAplicacion () { }
 
+        //Llama al metodo Ejecutar de la Clase CapaDominio y trata la excepcion
+        //lanzando una nueva Excepcion
+
         public string Ejecutar()
         {
             CapaDominio aux = new CapaDominio();

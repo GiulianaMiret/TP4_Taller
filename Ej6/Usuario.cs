@@ -12,36 +12,31 @@ namespace Ej5
         public string iNombreCompleto { get; set; }
         public string iCorreoElectronico { get; set; }
 
-        public string  Codigo
-        { get { return this.iCodigo; }
+        public Usuario (string pCodigo, string pNombre, string pCorreo)
+        {
+            this.iCodigo = pCodigo;
+            this.iNombreCompleto = pNombre;
+            this.iCorreoElectronico = pCodigo;
         }
 
-        public string  NombreCompleto
-        { get { return this.iNombreCompleto; }
+        public string Codigo
+        {
+            get { return this.iCodigo; }
         }
 
-        public string  CorreoElectronico
-        { get { return this.iCorreoElectronico; }
+        public string NombreCompleto
+        {
+            get { return this.iNombreCompleto; }
+        }
+
+        public string CorreoElectronico
+        {
+            get { return this.iCorreoElectronico; }
         }
 
         public int CompareTo(Usuario other)
         {
-           return this.Codigo.CompareTo(other.Codigo);
-
-            ////if (this.Codigo == other.Codigo)
-            //    { return 0; }
-            //else
-            //{
-            //    if (this.Codigo <= other.Codigo)
-            //    {
-            //        return -1;
-            //    }
-            //    else { }
-
-
-           
-
-            throw new NotImplementedException();
+            return this.Codigo.CompareTo(other.Codigo);
         }
     }
 }
