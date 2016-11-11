@@ -7,8 +7,8 @@
     <ProjectGuid>{661E23D0-456C-4673-BCF8-FB419F3B7968}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ejj6</RootNamespace>
-    <AssemblyName>Ejj6</AssemblyName>
+    <RootNamespace>Ej6</RootNamespace>
+    <AssemblyName>Ej6</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparadorCorreoElectronico.cs" />
+    <Compile Include="ComparadorNombre.cs" />
+    <Compile Include="ComparadorNombreyCodigo.cs" />
     <Compile Include="IRepositorioUsuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

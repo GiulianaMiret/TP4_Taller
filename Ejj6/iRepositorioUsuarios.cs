@@ -14,11 +14,10 @@ namespace Ej6
 
         void Eliminar(string pCodigo);
 
-        IList<Usuario> ObtenerTodos();
+        List<Usuario> ObtenerTodos();
 
         Usuario ObtenerPorCodigo(string pCodigo);
 
-        IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador);
-
+        List<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador);
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ej6
 {
-     class RepositorioEnMemoria : IRepositorioUsuarios
+    public class RepositorioEnMemoria : IRepositorioUsuarios
     {
-        public List< Usuario> lista = new List<Usuario>();
-
+        public List<Usuario> lista = new List<Usuario>();
+        //public List<KeyValuePair<string, Usuario>> lista = new List<KeyValuePair<string, Usuario>>();
         //Agrega un Usuario al diccionario
         public void Agregar(Usuario pUsuario)
         {
@@ -17,8 +17,10 @@ namespace Ej6
             {
                 throw new ArgumentNullException(nameof(pUsuario));
             }
-
-           lista.Add(pUsuario);
+            if (!lista.Contains(pUsuario))
+            {
+                lista.Add(pUsuario);
+            }
         }
 
         //Actualiza un Usuario del diccionario, buscandolo por el Codigo (clave)
@@ -29,44 +31,41 @@ namespace Ej6
                 throw new ArgumentNullException(nameof(pUsuario));
             }
 
-           //  if (!lista.Contains(pUsuario.Codigo))
-           // {
-               // throw new KeyNotFoundException(nameof(pUsuario));
-           // }
-
-          Usuario usuario =lista.Find(xUsuario => xUsuario.Codigo == pUsuario.Codigo);
-            
-
+            if (!lista.Contains(pUsuario))
+            {
+                //throw new KeyNotFoundException(nameof(pUsuario));
+                throw new Exception(nameof(pUsuario));
+            }
+            var aux = lista.FirstOrDefault(x  => x.Codigo == pUsuario.Codigo);
+            lista.Remove(aux);
+            lista.Add(pUsuario);
         }
 
         //Elimina a un Usuario especifico buscandolo por el codigo
         public void Eliminar(string pCodigo)
         {
-            Usuario usuario = lista.Find(xUsuario => xUsuario.Codigo == pCodigo);
-            if (lista.Contains(usuario))
-            {
-                lista.Remove(usuario);
-            }
-            else
+            if (pCodigo == null)
             {
                 throw new ArgumentNullException(nameof(pCodigo));
             }
+
+            var aux = lista.FirstOrDefault(x => x.Codigo == pCodigo);
+
+            if (!lista.Contains(aux))
+            {
+                throw new Exception(nameof(pCodigo));
+            }
             
-            
+            lista.Remove(aux);
         }
 
         //Obtiene todos los usuarios que estan en el diccionario
         //pasandolos a una lista, sin ningun orden especifico
-        public IList<Usuario> ObtenerTodos()
+        public List<Usuario> ObtenerTodos()
         {
-            IList<Usuario> lista1 = new List<Usuario>();
             if (lista == null)
             {
                 throw new ArgumentNullException(nameof(lista));
-            }
-            foreach (KeyValuePair<string, Usuario> result in lista)
-            {
-                lista1.Add(result.Value);
             }
 
             return lista;
@@ -75,8 +74,12 @@ namespace Ej6
         //Obtiene a un solo Usuario
         public Usuario ObtenerPorCodigo(string pCodigo)
         {
-            Usuario usuario = lista.Find(xUsuario => xUsuario.Codigo == pCodigo);
-            return usuario;
+            if (lista == null)
+            {
+                throw new ArgumentNullException(nameof(lista));
+            }
+            var aux = lista.FirstOrDefault(x => x.Codigo == pCodigo);
+            return aux;
         }
 
 
@@ -88,15 +91,28 @@ namespace Ej6
         //Segun el Correo Electronico
         //Segun el Nombre
         //Segun el Nombre y el Codigo
-        public IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador)
+        public List<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador)
         {
-            List<Usuario> usuarios = new List<Usuario>(this.lista);
+            //List<Usuario> usuarios = new List<Usuario>(this.lista.Values);
 
-            usuarios.Sort(pComparador);
+            //usuarios.Sort(pComparador);
 
-            return usuarios;
+            //return usuarios;
+
+            if (lista == null)
+            {
+                throw new ArgumentNullException(nameof(lista));
+            }
+
+            lista.Sort(pComparador);
+
+            return lista;
         }
 
-    {
+        public List<Usuario> BuscarPorAproximacion(string pNombreCompleto)
+        {
+            List<Usuario> listaAux = lista.FindAll(x => x.NombreCompleto.IndexOf(pNombreCompleto, StringComparison.OrdinalIgnoreCase) != -1);
+            return listaAux;
+        }
     }
 }

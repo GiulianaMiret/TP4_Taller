@@ -38,5 +38,23 @@ namespace Ej6
         {
             return this.Codigo.CompareTo(other.Codigo);
         }
+
+        public override bool Equals(object obj)
+        {
+            //Verifica si el parametro es nulo y si el objeto es de igual tipo
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            Usuario aux = obj as Usuario;
+            return aux.Codigo == this.Codigo;
+            
+        }
+
+        public override int GetHashCode()
+        {
+            return Convert.ToInt32(this.Codigo);
+            //this.GetHashCode();
+        }
     }
 }
