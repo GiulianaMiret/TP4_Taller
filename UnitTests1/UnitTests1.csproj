@@ -56,8 +56,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioEnMemoriaTests.cs" />
     <Compile Include="Agenda.cs" />
+    <Compile Include="MatematicaTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ej2\Ej2.csproj">
+      <Project>{cf417f0a-ae8c-4b93-8ada-98e7a29bef05}</Project>
+      <Name>Ej2</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ej6\Ej5.csproj">
       <Project>{91112AE7-471F-4F7C-A9DC-9AB799E91B73}</Project>
       <Name>Ej5</Name>

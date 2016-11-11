@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UsuarioTests
+namespace Ej4
 {
-    class UsuarioTests
-    {
-    }
+    enum TipoDocumento { DNI, CUIT, CUIL, LE, LC };
 }
