@@ -29,10 +29,10 @@ namespace Ej6
                 throw new ArgumentNullException(nameof(pUsuario));
             }
 
-            // if (!lista.ContainsKey(pUsuario.Codigo))
-            //{
-            //    throw new KeyNotFoundException(nameof(pUsuario));
-            //}
+           //  if (!lista.Contains(pUsuario.Codigo))
+           // {
+               // throw new KeyNotFoundException(nameof(pUsuario));
+           // }
 
           Usuario usuario =lista.Find(xUsuario => xUsuario.Codigo == pUsuario.Codigo);
             
